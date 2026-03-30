@@ -1,0 +1,187 @@
+================================================================================
+THE RÓS CAFÉ — IMAGE ASSETS GUIDE
+================================================================================
+
+This folder should contain all images for The Rós Café website.
+Below are the recommended subfolder structure, image specifications,
+and instructions for replacing placeholder elements.
+
+================================================================================
+RECOMMENDED FOLDER STRUCTURE
+================================================================================
+
+images/
+├── hero/
+│   └── cafe-exterior.jpg      (Hero background, 1920x1080px minimum)
+├── gallery/
+│   ├── cafe/                  (Interior photos, food prep area, seating)
+│   ├── food/                  (Breakfast, lunch, coffee, pastries)
+│   ├── cakes/                 (Occasion cakes, birthday, wedding)
+│   └── catering/              (Catering setup, event photos)
+├── icons/
+│   └── favicon.ico            (32x32px favicon)
+├── social/
+│   └── og-image.jpg           (1200x630px for Open Graph/social sharing)
+└── team/
+    └── (Optional team photos)
+
+================================================================================
+RECOMMENDED IMAGE SIZES
+================================================================================
+
+TYPE                    DIMENSIONS          FORMAT      NOTES
+--------------------------------------------------------------------------------
+Hero/Banner             1920 x 1080 px      JPG         Use quality 80-85%
+Gallery items           800 x 800 px        JPG         Square, quality 80%
+Feature cards           600 x 400 px        JPG         16:9 ratio
+Thumbnails              400 x 400 px        JPG         Square, quality 75%
+OG/Social image         1200 x 630 px       JPG         Required for sharing
+Favicon                 32 x 32 px          ICO/PNG     Multiple sizes ideal
+Logo (if used)          400 x auto          PNG         Transparent background
+
+================================================================================
+IMAGE OPTIMISATION
+================================================================================
+
+Before uploading images:
+
+1. RESIZE to the recommended dimensions (do not upload full camera resolution)
+2. COMPRESS using tools like:
+   - TinyPNG (https://tinypng.com) — free, excellent quality
+   - ImageOptim (Mac) — free desktop app
+   - Squoosh (https://squoosh.app) — free, Google tool
+3. TARGET FILE SIZE:
+   - Hero images: under 200KB
+   - Gallery images: under 100KB each
+   - Thumbnails: under 50KB each
+
+================================================================================
+IMPORTANT: loading="lazy" ATTRIBUTE
+================================================================================
+
+When adding <img> tags to replace placeholder elements, ALWAYS include:
+
+    loading="lazy"
+
+This defers loading of off-screen images for better performance.
+
+Example:
+    <img src="images/gallery/cafe/interior-01.jpg"
+         alt="Inside The Rós Café, Newmarket on Fergus, Co. Clare"
+         loading="lazy">
+
+================================================================================
+ALT TEXT GUIDELINES (SEO)
+================================================================================
+
+Every image MUST have a descriptive, keyword-rich alt attribute:
+
+TYPE            EXAMPLE ALT TEXT
+--------------------------------------------------------------------------------
+Café exterior   "The Rós Café exterior, Ennis Road, Newmarket on Fergus, Co. Clare"
+Café interior   "Inside The Rós Café, pink décor, Newmarket on Fergus"
+Food photos     "Freshly made full Irish breakfast at The Rós Café, Newmarket on Fergus"
+Coffee          "Artisan coffee at The Rós Café, Co. Clare"
+Cakes           "Custom birthday cake by The Rós Café, Newmarket on Fergus, Co. Clare"
+Wedding cake    "Wedding cake by The Rós Café, occasion cakes in Co. Clare"
+Catering        "Outside catering setup by The Rós Café across Co. Clare"
+
+Include location keywords naturally: Newmarket on Fergus, Co. Clare, Clare
+
+================================================================================
+HOW TO REPLACE PLACEHOLDER DIVS WITH REAL IMAGES
+================================================================================
+
+STEP 1: Find placeholder elements in HTML files
+        Look for elements with:
+        - class="*-placeholder"
+        - role="img" aria-label="..."
+        - Comments like <!-- Replace with real image -->
+
+STEP 2: Replace the placeholder <div> with an <img> tag
+
+BEFORE (placeholder):
+    <div class="gallery-placeholder" role="img"
+         aria-label="Freshly made breakfast at The Rós Café, Newmarket on Fergus">
+      <span>🍳</span>
+    </div>
+
+AFTER (real image):
+    <img src="images/gallery/food/breakfast-01.jpg"
+         alt="Freshly made breakfast at The Rós Café, Newmarket on Fergus"
+         loading="lazy">
+
+STEP 3: Use the aria-label text as your alt text (already SEO-optimised)
+
+STEP 4: Ensure loading="lazy" is present on all images
+
+================================================================================
+HERO SECTION IMAGES
+================================================================================
+
+For the hero section on index.html, you may want to:
+
+1. Use a CSS background-image for the visual panel
+2. Or replace the placeholder card with an actual <img>
+
+The hero badges (icons) are emoji-based and don't need replacing.
+
+================================================================================
+SOCIAL SHARING IMAGE (CRITICAL)
+================================================================================
+
+Create an OG image at: images/og-image.jpg
+
+Specifications:
+- Dimensions: 1200 x 630 pixels
+- Format: JPG
+- Content: Café logo, tagline, appealing food/café photo
+- Text should be readable at small sizes
+
+This image appears when the site is shared on Facebook, Twitter, LinkedIn, etc.
+
+After creating, the image path is already set in all HTML files:
+    <meta property="og:image" content="https://theroscafe.com/images/og-image.jpg">
+
+================================================================================
+FAVICON
+================================================================================
+
+Create a favicon and add to the <head> of each HTML file:
+
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+
+Use https://favicon.io or https://realfavicongenerator.net to generate all sizes.
+
+================================================================================
+WEBP FORMAT (OPTIONAL ENHANCEMENT)
+================================================================================
+
+For even better performance, consider providing WebP versions:
+
+    <picture>
+      <source srcset="images/gallery/food/breakfast-01.webp" type="image/webp">
+      <img src="images/gallery/food/breakfast-01.jpg"
+           alt="Freshly made breakfast at The Rós Café, Newmarket on Fergus"
+           loading="lazy">
+    </picture>
+
+WebP typically provides 25-35% smaller file sizes than JPG.
+
+================================================================================
+CHECKLIST BEFORE LAUNCH
+================================================================================
+
+[ ] All placeholder divs replaced with real <img> tags
+[ ] All images have descriptive alt text with location keywords
+[ ] All images have loading="lazy" attribute
+[ ] Images are optimised (compressed, correct dimensions)
+[ ] OG image (og-image.jpg) created and uploaded
+[ ] Favicon files created and linked in all HTML files
+[ ] Gallery images categorised correctly
+[ ] File names use lowercase and hyphens (no spaces)
+
+================================================================================
