@@ -1379,3 +1379,20 @@
   opacity: 1;
   transform: none;
 }
+
+/* ─────────────────────────────────────────────
+   MENU CARD PREVIEW (cake & catering menu images)
+   ───────────────────────────────────────────── */
+.menu-preview {
+  text-align: center;
+}
+.menu-preview img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+.menu-preview a:hover img {
+  transform: scale(1.02);
+}
