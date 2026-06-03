@@ -1366,3 +1366,16 @@
   object-fit: cover;
   display: block;
 }
+
+/* ─────────────────────────────────────────────
+   GALLERY ITEMS ALWAYS VISIBLE
+   The .gallery-grid grids carry .stagger-children but NOT
+   .scroll-reveal, so the IntersectionObserver never adds
+   .is-visible and the items would stay at opacity:0.
+   Reveal them via CSS so the photos always show (incl. on
+   tab switches, where hidden panels may not re-observe).
+   ───────────────────────────────────────────── */
+.gallery-grid.stagger-children > .gallery-item {
+  opacity: 1;
+  transform: none;
+}
