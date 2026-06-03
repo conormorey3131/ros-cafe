@@ -1,0 +1,623 @@
+/* ============================================
+   THE RÓS CAFÉ — ANIMATIONS STYLESHEET
+   css/animations.css
+   All @keyframes, animation utility classes,
+   load stagger, hero effects, ornaments
+   ============================================ */
+
+/* ─────────────────────────────────────────────
+   @KEYFRAMES DEFINITIONS
+   ───────────────────────────────────────────── */
+
+/* Fade up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Float up (orbs) */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-35px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(15px);
+  }
+}
+
+/* Rotate clockwise (ring 1) */
+@keyframes rotateCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Rotate counter-clockwise (ring 2) */
+@keyframes rotateCCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Gradient breath effect */
+@keyframes gradientBreath {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Shimmer effect on buttons */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Shake animation for invalid fields */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+/* Line draw from center */
+@keyframes drawLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Clip wipe from left */
+@keyframes clipWipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Icon pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Checkmark draw */
+@keyframes checkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Draw underline for pink word */
+@keyframes drawUnderline {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bounce subtle */
+@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PAGE LOAD STAGGER CLASSES
+   ───────────────────────────────────────────── */
+
+/* Base load animation class */
+.anim-load {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Stagger delays - applied via JS or manually */
+.anim-load-1 {
+  animation: fadeUp 600ms var(--ease-smooth) 0ms forwards;
+}
+
+.anim-load-2 {
+  animation: fadeUp 600ms var(--ease-smooth) 120ms forwards;
+}
+
+.anim-load-3 {
+  animation: fadeUp 600ms var(--ease-smooth) 240ms forwards;
+}
+
+.anim-load-4 {
+  animation: fadeUp 600ms var(--ease-smooth) 360ms forwards;
+}
+
+.anim-load-5 {
+  animation: fadeUp 600ms var(--ease-smooth) 480ms forwards;
+}
+
+.anim-load-6 {
+  animation: fadeUp 600ms var(--ease-smooth) 600ms forwards;
+}
+
+/* ─────────────────────────────────────────────
+   HERO SPECIAL EFFECTS
+   ───────────────────────────────────────────── */
+
+/* Pink word animated underline */
+.hero-home .pink-word::after {
+  animation: drawUnderline 0.8s var(--ease-smooth) 0.7s forwards;
+}
+
+/* Hero gradient breath */
+.hero-home {
+  background-size: 200% 200%;
+  animation: gradientBreath 12s ease infinite alternate;
+}
+
+/* Floating orb variations */
+.float-orb {
+  will-change: transform;
+}
+
+.float-orb:nth-child(1) {
+  animation-duration: 10s;
+  animation-delay: 0s;
+}
+
+.float-orb:nth-child(2) {
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.float-orb:nth-child(3) {
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.float-orb:nth-child(4) {
+  animation-duration: 14s;
+  animation-delay: 3s;
+}
+
+.float-orb:nth-child(5) {
+  animation-duration: 11s;
+  animation-delay: 1.5s;
+}
+
+/* Ring rotations */
+.ring-1 {
+  animation: rotateCW 30s linear infinite;
+}
+
+.ring-2 {
+  animation: rotateCCW 45s linear infinite;
+}
+
+/* ─────────────────────────────────────────────
+   CARD HOVER EFFECTS
+   ───────────────────────────────────────────── */
+
+/* Card bottom bar reveal */
+.card::after {
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+/* Menu item left border */
+.menu-item::before {
+  transform-origin: center;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+/* Feature card icon pulse */
+.feature-card:hover .feature-card-icon {
+  animation: pulse 0.5s var(--ease-smooth);
+}
+
+/* ─────────────────────────────────────────────
+   BUTTON EFFECTS
+   ───────────────────────────────────────────── */
+
+/* Shimmer sweep on hover */
+.btn-pink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.btn-pink:hover::before {
+  animation: shimmer 0.5s var(--ease-smooth);
+}
+
+/* Arrow slide on arrow-link */
+.arrow-link .arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.arrow-link:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* ─────────────────────────────────────────────
+   ORNAMENTAL DIVIDER ANIMATIONS
+   ───────────────────────────────────────────── */
+
+/* Lines draw outward from center */
+.ornament-line {
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.8s var(--ease-smooth);
+}
+
+.ornament.is-visible .ornament-line {
+  transform: scaleX(1);
+}
+
+.ornament-line:first-child {
+  transition-delay: 0.1s;
+}
+
+.ornament-line:last-child {
+  transition-delay: 0.2s;
+}
+
+/* Dot fade in */
+.ornament-dot {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth) 0.3s;
+}
+
+.ornament.is-visible .ornament-dot {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   FAQ ACCORDION ANIMATIONS
+   ───────────────────────────────────────────── */
+
+/* Answer expand/collapse */
+.faq-answer {
+  transition: max-height 0.4s var(--ease-smooth);
+}
+
+/* Chevron rotation */
+.faq-chevron {
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.faq-item.is-open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* ─────────────────────────────────────────────
+   GALLERY TAB ANIMATIONS
+   ───────────────────────────────────────────── */
+
+/* Tab pill slide */
+.tab-pill {
+  transition: transform 0.3s var(--ease-smooth),
+              width 0.3s var(--ease-smooth);
+}
+
+/* Content cross-fade */
+.gallery-panel {
+  animation: fadeIn 0.3s var(--ease-smooth);
+}
+
+/* ─────────────────────────────────────────────
+   FORM ANIMATIONS
+   ───────────────────────────────────────────── */
+
+/* Focus underline grow */
+.form-field::after {
+  transition: width 0.3s var(--ease-smooth),
+              left 0.3s var(--ease-smooth);
+}
+
+/* Invalid shake */
+.form-input.is-invalid,
+.form-select.is-invalid,
+.form-textarea.is-invalid {
+  animation: shake 0.4s var(--ease-smooth);
+}
+
+/* Success checkmark draw */
+.success-checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: checkDraw 0.6s var(--ease-smooth) forwards;
+}
+
+.success-checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkDraw 0.3s var(--ease-smooth) 0.6s forwards;
+}
+
+/* ─────────────────────────────────────────────
+   NAVIGATION ANIMATIONS
+   ───────────────────────────────────────────── */
+
+/* Nav link underline grow from center */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--pink);
+  transition: width 0.3s var(--ease-smooth),
+              left 0.3s var(--ease-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Dropdown appear */
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-smooth),
+              transform 0.3s var(--ease-smooth);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.is-open .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Mobile nav drawer */
+.mobile-nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-smooth);
+}
+
+.mobile-nav.is-open {
+  max-height: 500px;
+}
+
+/* Logo hover */
+.site-logo:hover {
+  transform: scale(1.03);
+}
+
+.site-logo {
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL REVEAL STAGGER
+   ───────────────────────────────────────────── */
+
+/* Apply stagger delay via CSS custom property */
+.stagger-children > *:nth-child(1) { transition-delay: calc(1 * 80ms); }
+.stagger-children > *:nth-child(2) { transition-delay: calc(2 * 80ms); }
+.stagger-children > *:nth-child(3) { transition-delay: calc(3 * 80ms); }
+.stagger-children > *:nth-child(4) { transition-delay: calc(4 * 80ms); }
+.stagger-children > *:nth-child(5) { transition-delay: calc(5 * 80ms); }
+.stagger-children > *:nth-child(6) { transition-delay: calc(6 * 80ms); }
+.stagger-children > *:nth-child(7) { transition-delay: calc(7 * 80ms); }
+.stagger-children > *:nth-child(8) { transition-delay: calc(8 * 80ms); }
+.stagger-children > *:nth-child(9) { transition-delay: calc(9 * 80ms); }
+.stagger-children > *:nth-child(10) { transition-delay: calc(10 * 80ms); }
+.stagger-children > *:nth-child(11) { transition-delay: calc(11 * 80ms); }
+.stagger-children > *:nth-child(12) { transition-delay: calc(12 * 80ms); }
+
+/* ─────────────────────────────────────────────
+   REDUCED MOTION
+   ───────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .anim-load {
+    opacity: 1;
+    transform: none;
+  }
+
+  .float-orb,
+  .ring-1,
+  .ring-2 {
+    animation: none;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   LOADING SPINNER (utility)
+   ───────────────────────────────────────────── */
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--pink-light);
+  border-top-color: var(--pink);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinner-lg {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+}
+
+/* ─────────────────────────────────────────────
+   IMAGE HOVER ZOOM
+   ───────────────────────────────────────────── */
+
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ─────────────────────────────────────────────
+   LINK UNDERLINE ANIMATION
+   ───────────────────────────────────────────── */
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
