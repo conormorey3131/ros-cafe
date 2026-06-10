@@ -1,11 +1,11 @@
 # Robots.txt for The Rós Café
-# https://theroscafe.com
+# https://roscafe.ie
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://theroscafe.com/sitemap.xml
+Sitemap: https://roscafe.ie/sitemap.xml
 
 # Crawl-delay (optional - be kind to our server)
 Crawl-delay: 1
