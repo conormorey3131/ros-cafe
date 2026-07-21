@@ -1252,34 +1252,44 @@
   text-align: center;
 }
 
+.instagram-handle {
+  color: var(--pink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+.instagram-handle:hover {
+  color: var(--pink-dark);
+}
+
 .instagram-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: var(--space-md);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
   margin-bottom: var(--space-xl);
 }
 
 .instagram-item {
   position: relative;
-  aspect-ratio: 1;
+  display: block;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
 }
 
-.instagram-placeholder {
+.instagram-item img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--pink-pale) 0%, var(--cream) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  object-fit: cover;
+  display: block;
   transition: transform var(--duration-normal) var(--ease-smooth);
 }
 
-.instagram-item:hover .instagram-placeholder {
-  transform: scale(1.1);
+.instagram-item:hover img,
+.instagram-item:focus-visible img {
+  transform: scale(1.06);
 }
 
 .instagram-overlay {
@@ -1288,15 +1298,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(212, 80, 122, 0.85);
+  background: rgba(45, 32, 40, 0.6);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--space-sm);
   opacity: 0;
   transition: opacity var(--duration-normal) var(--ease-smooth);
 }
 
-.instagram-item:hover .instagram-overlay {
+.instagram-item:hover .instagram-overlay,
+.instagram-item:focus-visible .instagram-overlay {
   opacity: 1;
 }
 
@@ -1309,6 +1322,14 @@
   height: 32px;
 }
 
+.instagram-overlay-text {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .instagram-follow {
   margin-top: var(--space-lg);
 }
@@ -1318,24 +1339,18 @@
   align-items: center;
 }
 
-@media (max-width: 991px) {
-  .instagram-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .instagram-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .instagram-placeholder {
-    font-size: 1.5rem;
   }
 
   .instagram-icon svg {
     width: 24px;
     height: 24px;
+  }
+
+  .instagram-overlay-text {
+    font-size: 0.7rem;
   }
 }
 
